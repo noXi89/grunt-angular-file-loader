@@ -157,7 +157,7 @@ module.exports = function (grunt) {
             }
 
             var splitedFile = (grunt.file.read(file)).split(supportedExt[pattern]["regex"]);
-            var indentation = splitedFile[0].substr( splitedFile[0].lastIndexOf(EOL) + 1 ).match(/^[^\S\n\r]*/)[0];
+            var indentation = splitedFile[0].substr( splitedFile[0].lastIndexOf(EOL) + EOL.length ).match(/^[^\S\n\r]*/)[0];
 
             splitedFile[1] = supportedExt[pattern]["comment"]["start"] + options.startTag + supportedExt[pattern]["comment"]["end"] + EOL;
             sortedScripts.forEach(function (script) {
